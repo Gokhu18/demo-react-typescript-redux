@@ -1,13 +1,14 @@
 import Hello from '../../components/Hello/Hello';
 import * as actions from '../../actions/';
-import { StoreState } from '../../types/index';
+import { RootState } from '../../types/index';
 import { connect, Dispatch } from 'react-redux';
 
 // Massages the data from the current store to part of the shape that our component needs
-export const mapStateToProps = ({ enthusiasmLevel, languageName }: StoreState) => {
+export const mapStateToProps = ({ router, enthusiasm }: RootState) => {
   return {
-    enthusiasmLevel,
-    name: languageName,
+    router,
+    name: enthusiasm.name,
+    enthusiasmLevel: enthusiasm.enthusiasmLevel
   };
 };
 
