@@ -1,13 +1,17 @@
 import { EnthusiasmAction } from '../actions';
-import { RootState } from '../types/index';
-// import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index';
+import { EnthusiasmState, ENTHUSIASM_STATE_INITIAL_STATE } from '../types/index';
+import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index';
 
-export const enthusiasm = (state: RootState, action: EnthusiasmAction): RootState => {
+const initialState: EnthusiasmState = ENTHUSIASM_STATE_INITIAL_STATE;
+
+export const enthusiasm = (state = initialState, action: EnthusiasmAction): EnthusiasmState => {
   switch (action.type) {
-    // case INCREMENT_ENTHUSIASM:
-    //   return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };
-    // case DECREMENT_ENTHUSIASM:
-    //   return { ...state, enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1) };
+    case INCREMENT_ENTHUSIASM:
+      const newValueAfterIncrement = state.enthusiasmLevel + 1;
+      return { ...state, enthusiasmLevel: newValueAfterIncrement };
+    case DECREMENT_ENTHUSIASM:
+      const newValueAfterDecrement = Math.max(1, state.enthusiasmLevel - 1);
+      return { ...state, enthusiasmLevel: newValueAfterDecrement };
     default:
       return state;
   }
