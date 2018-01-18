@@ -2,10 +2,14 @@
 interface StoreEnhancerState { }
 export interface RootState extends StoreEnhancerState {
   router?: object;
-  name?: string;
+  enthusiasm: EnthusiasmState;
 }
 
-// export interface StoreState {
-//   router?: Object;
-//   name: string;
-// }
+export interface EnthusiasmState {
+  name: string;
+  enthusiasmLevel: number;
+}
+export const ENTHUSIASM_STATE_INITIAL_STATE = {
+  name: '', 
+  enthusiasmLevel: 1
+};
