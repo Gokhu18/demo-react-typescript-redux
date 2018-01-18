@@ -4,9 +4,11 @@ import { RootState } from '../../types/index';
 import { connect, Dispatch } from 'react-redux';
 
 // Massages the data from the current store to part of the shape that our component needs
-export const mapStateToProps = ({ name }: RootState) => {
+export const mapStateToProps = ({ router, enthusiasm }: RootState) => {
   return {
-    name,
+    router,
+    name: enthusiasm.name,
+    enthusiasmLevel: enthusiasm.enthusiasmLevel
   };
 };
 
