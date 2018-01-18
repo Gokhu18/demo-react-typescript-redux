@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 // Styling
-import './index.css';
+import './css/index.css';
 
 // Containers
 import Hello from './containers/Hello/Hello';
