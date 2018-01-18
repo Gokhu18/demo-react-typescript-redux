@@ -1,38 +1,38 @@
-// import { createStore, compose } from 'redux';
-import { createStore } from 'redux';
-import { RootState } from './types/index';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { RootState, ENTHUSIASM_STATE_INITIAL_STATE } from './types/index';
 import { rootReducer } from './redux/root-reducer';
+import { routerMiddleware } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
 
 // Redux DevTools Extension - http://extension.remotedev.io
 declare let window: { devToolsExtension: Function };
 const reduxDevTools = window.devToolsExtension ? window.devToolsExtension() : undefined;
 
-// const composeEnhancers = (
-//   process.env.NODE_ENV === 'development' &&
-//   reduxDevTools
-// ) || compose;
+export const history = createHistory();
+history.listen((location, action) => {
+  /* EXAMPLE: Google Analytics on each route change */
+});
 
 function configureStore(initialState?: RootState) {
-  // configure middleware
-  // const middleware = [];
+  const middleware = [
+    routerMiddleware(history)
+  ];
 
   // compose enhancers
-  // const enhancer = composeEnhancers(
-  //   applyMiddleware(...middleware)
-  // );
-  // const enhancer = composeEnhancers();
+  const enhancer = compose(
+    applyMiddleware(...middleware),
+    ...reduxDevTools
+  );
 
-  // // create store
-  // return createStore(
-  //   rootReducer,
-  //   initialState!,
-  //   enhancer
-  // );
-  return createStore<RootState>(rootReducer, initialState!, reduxDevTools);
+  return createStore<RootState>(rootReducer, initialState!, enhancer);
 }
 
 // pass an optional param to rehydrate state on app start
-const INITIAL_STATE = { router: {}, name: 'Rob' };
+const INITIAL_STATE: RootState = { 
+  router: {}, 
+  enthusiasm: ENTHUSIASM_STATE_INITIAL_STATE 
+};
+
 const store = configureStore(INITIAL_STATE);
 
 // export store singleton instance
