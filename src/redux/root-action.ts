@@ -1,17 +1,18 @@
-// RootActions
+// React router actions
 import { RouterAction, LocationChangeAction } from 'react-router-redux';
-// import { getReturnOfExpression } from 'react-redux-typescript';
+type ReactRouterAction = RouterAction | LocationChangeAction;
+
+// import { IncrementEnthusiasm, DecrementEnthusiasm, EnthusiasmAction } from '../actions/index'
+import { EnthusiasmAction } from '../actions/index';
 
 // import { actions as countersAC } from '@src/redux/counters';
 // import { actions as todosAC } from '@src/redux/todos';
 // import { actions as toastsAC } from '@src/redux/toasts';
 
-export const allActions = {
+// export const allActions = {
   // ...countersAC,
   // ...todosAC,
   // ...toastsAC,
-};
+// };
 
-type ReactRouterAction = RouterAction | LocationChangeAction;
-
-export type RootAction = ReactRouterAction;
+export type RootAction = ReactRouterAction | EnthusiasmAction;

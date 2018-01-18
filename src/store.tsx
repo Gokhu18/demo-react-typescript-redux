@@ -1,7 +1,6 @@
 // import { createStore, compose } from 'redux';
 import { createStore } from 'redux';
-import { StoreState } from './types/index';
-// import { rootReducer, RootState } from './redux/root-reducer';
+import { RootState } from './types/index';
 import { rootReducer } from './redux/root-reducer';
 
 // Redux DevTools Extension - http://extension.remotedev.io
@@ -13,7 +12,7 @@ const reduxDevTools = window.devToolsExtension ? window.devToolsExtension() : un
 //   reduxDevTools
 // ) || compose;
 
-function configureStore(initialState?: StoreState) {
+function configureStore(initialState?: RootState) {
   // configure middleware
   // const middleware = [];
 
@@ -29,11 +28,12 @@ function configureStore(initialState?: StoreState) {
   //   initialState!,
   //   enhancer
   // );
-  return createStore<StoreState>(rootReducer, initialState!, reduxDevTools);
+  return createStore<RootState>(rootReducer, initialState!, reduxDevTools);
 }
 
 // pass an optional param to rehydrate state on app start
-const store = configureStore();
+const INITIAL_STATE = { router: {}, name: 'Rob' };
+const store = configureStore(INITIAL_STATE);
 
 // export store singleton instance
 export default store;
