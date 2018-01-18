@@ -9,7 +9,7 @@ import Hello from './containers/Hello/Hello';
 
 // Redux
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './store/store';
 
 /* Notice that Hello no longer needs props, since we used our connect function to adapt our 
   application's state for our wrapped Hello component's props
