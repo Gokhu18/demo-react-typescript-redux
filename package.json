@@ -26,7 +26,9 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "heroku:deploy": "git push heroku $(git rev-parse --abbrev-ref HEAD):master",
+    "heroku:deploy:force": "git push -f heroku $(git rev-parse --abbrev-ref HEAD):master"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.6",
