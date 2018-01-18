@@ -1,6 +1,6 @@
-import { EnthusiasmAction } from '../redux/actions';
-import { EnthusiasmState, ENTHUSIASM_STATE_INITIAL_STATE } from '../types/index';
-import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index';
+import { EnthusiasmAction } from '../actions';
+import { EnthusiasmState, ENTHUSIASM_STATE_INITIAL_STATE } from '../../types/index';
+import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../../constants/index';
 
 const initialState: EnthusiasmState = ENTHUSIASM_STATE_INITIAL_STATE;
 
