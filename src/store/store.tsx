@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { RootState, ENTHUSIASM_STATE_INITIAL_STATE } from '../types/index';
+import { RootState, ENTHUSIASM_STATE_INITIAL_STATE } from '../redux/types/index';
 import { rootReducer } from '../redux/root-reducer';
 import { routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';

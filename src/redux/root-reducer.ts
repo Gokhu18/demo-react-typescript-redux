@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { RootState } from '../types/index';
+import { RootState } from './types/index';
 
 // Reducers
 import { routerReducer as router } from 'react-router-redux';
