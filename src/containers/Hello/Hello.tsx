@@ -1,6 +1,6 @@
 import Hello from '../../components/Hello/Hello';
-import * as actions from '../../actions/';
-import { RootState } from '../../types/index';
+import * as actions from '../../redux/actions/';
+import { RootState } from '../../redux/types/index';
 import { connect, Dispatch } from 'react-redux';
 
 // Massages the data from the current store to part of the shape that our component needs
