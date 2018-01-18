@@ -1,23 +1,27 @@
-import * as constants from '../../constants';
+export const INCREMENT_ENTHUSIASM = 'INCREMENT_ENTHUSIASM';
+export type INCREMENT_ENTHUSIASM = typeof INCREMENT_ENTHUSIASM;
+
+export const DECREMENT_ENTHUSIASM = 'DECREMENT_ENTHUSIASM';
+export type DECREMENT_ENTHUSIASM = typeof DECREMENT_ENTHUSIASM;
 
 export interface IncrementEnthusiasm {
-    type: constants.INCREMENT_ENTHUSIASM;
+    type: INCREMENT_ENTHUSIASM;
 }
 
 export interface DecrementEnthusiasm {
-    type: constants.DECREMENT_ENTHUSIASM;
+    type: DECREMENT_ENTHUSIASM;
 }
 
 export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm;
 
 export const incrementEnthusiasm = (): IncrementEnthusiasm => {
     return {
-        type: constants.INCREMENT_ENTHUSIASM
+        type: INCREMENT_ENTHUSIASM
     };
 };
 
 export const decrementEnthusiasm = (): DecrementEnthusiasm => {
     return {
-        type: constants.DECREMENT_ENTHUSIASM
+        type: DECREMENT_ENTHUSIASM
     };    
 };
